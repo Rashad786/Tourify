@@ -1,0 +1,161 @@
+2026-02-12 21:58:51 -  INFO - c.r.T.TourPlannerApplication - Starting TourPlannerApplication using Java 22.0.1 with PID 4116 (C:\Users\Mohd Rashad\OneDrive\Desktop\Spring Boot\Telusko\Project\TourPlanner\target\classes started by Mohd Rashad in C:\Users\Mohd Rashad\OneDrive\Desktop\Spring Boot\Telusko\Project\TourPlanner)
+2026-02-12 21:58:51 -  INFO - c.r.T.TourPlannerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-12 21:58:54 -  INFO - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-12 21:58:54 -  INFO - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 226 ms. Found 6 JPA repository interfaces.
+2026-02-12 21:58:56 -  INFO - o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-12 21:58:56 -  INFO - o.a.c.c.StandardService - Starting service [Tomcat]
+2026-02-12 21:58:56 -  INFO - o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-02-12 21:58:56 -  INFO - o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2026-02-12 21:58:56 -  INFO - o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5417 ms
+2026-02-12 21:58:56 -  INFO - c.r.T.s.JwtService - Generating a new secret key.
+2026-02-12 21:58:56 -  INFO - c.r.T.s.JwtService - Secret key generated successfully.
+2026-02-12 21:58:56 -  INFO - c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2026-02-12 21:58:57 -  INFO - c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c9beb51
+2026-02-12 21:58:57 -  INFO - c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-12 21:58:58 -  INFO - o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-12 21:58:58 -  INFO - o.h.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-02-12 21:58:58 -  INFO - o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-12 21:58:59 -  INFO - o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-12 21:58:59 -  WARN - o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-12 21:59:02 -  INFO - o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-12 21:59:02 -  INFO - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-12 21:59:03 -  INFO - o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-12 21:59:05 -  INFO - o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation should only be used on methods with parameters: public void com.rashad.TourPlanner.controller.BookingController.init()
+2026-02-12 21:59:06 -  WARN - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-12 21:59:06 -  INFO - c.r.T.c.SecurityConfig - Configuring HTTP Security filters.
+2026-02-12 21:59:06 -  INFO - c.r.T.c.SecurityConfig - Configuring CORS with allowed origins and methods.
+2026-02-12 21:59:06 -  INFO - c.r.T.c.SecurityConfig - Configuring CORS Configuration.
+2026-02-12 21:59:06 -  INFO - c.r.T.c.SecurityConfig - CORS Configuration successfully set.
+2026-02-12 21:59:07 -  INFO - o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7b255b15, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2165828d, org.springframework.security.web.context.SecurityContextHolderFilter@4aca25e8, org.springframework.security.web.header.HeaderWriterFilter@1b5593e6, org.springframework.web.filter.CorsFilter@3540d5e3, org.springframework.security.web.authentication.logout.LogoutFilter@21e470cc, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@6f1f1a7d, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@4fbdc20, com.rashad.TourPlanner.config.JwtFilter@3bd552f7, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@54ce2da8, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1a325aa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2929ef51, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4fa650e1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@508f2b78, org.springframework.security.web.session.SessionManagementFilter@7ac47e87, org.springframework.security.web.access.ExceptionTranslationFilter@1e9b1d9f, org.springframework.security.web.access.intercept.AuthorizationFilter@508b9c16]
+2026-02-12 21:59:08 -  INFO - o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-02-12 21:59:08 -  INFO - c.r.T.TourPlannerApplication - Started TourPlannerApplication in 18.992 seconds (process running for 20.23)
+2026-02-12 21:59:19 -  INFO - o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-12 21:59:19 -  INFO - o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-12 21:59:19 -  INFO - o.s.w.s.DispatcherServlet - Completed initialization in 0 ms
+2026-02-12 21:59:22 -  INFO - c.r.T.s.JwtService - Generating token for username: mohdrashad522@gmail.com
+2026-02-12 21:59:22 -  INFO - c.r.T.s.JwtService - Role for user mohdrashad522@gmail.com: ROLE_CUSTOMER
+2026-02-12 21:59:22 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 21:59:22 -  INFO - c.r.T.s.JwtService - Token generated successfully for username: mohdrashad522@gmail.com
+2026-02-12 21:59:22 -  INFO - c.r.T.c.OAuth2LoginSuccessHandler - JWT token generated for user: mohdrashad522@gmail.com
+2026-02-12 21:59:22 -  INFO - c.r.T.c.OAuth2LoginSuccessHandler - Redirecting user to: http://localhost:5173/authSuccess?token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9DVVNUT01FUiIsInN1YiI6Im1vaGRyYXNoYWQ1MjJAZ21haWwuY29tIiwiaWF0IjoxNzcwOTEzNzYyLCJleHAiOjE3NzEwMDAxNjJ9.s80UwD1ixdMX7Zhsp0en6BpMBOgyHcgyevCZ7VwOLaA
+2026-02-12 21:59:23 -  INFO - c.r.T.c.JwtFilter - Processing request to URI: /customer/tours
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Extracting username from token.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 21:59:23 -  INFO - c.r.T.c.JwtFilter - User 'mohdrashad522@gmail.com' is not authenticated, proceeding with token validation.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.MyUserDetailService - User found with email: mohdrashad522@gmail.com, Role: ROLE_CUSTOMER
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Validating token for user: mohdrashad522@gmail.com
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Extracting username from token.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Checking if token is expired.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Extracting expiration date from token.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Token is valid for user: mohdrashad522@gmail.com
+2026-02-12 21:59:23 -  INFO - c.r.T.c.UserPrincipal - Retrieving authorities for user: mohdrashad522@gmail.com
+2026-02-12 21:59:23 -  INFO - c.r.T.c.UserPrincipal - Assigned authority: ROLE_CUSTOMER
+2026-02-12 21:59:23 -  INFO - c.r.T.c.JwtFilter - User 'mohdrashad522@gmail.com' successfully authenticated.
+2026-02-12 21:59:23 -  INFO - c.r.T.c.JwtFilter - Continuing filter chain for request to URI: /customer/tours
+2026-02-12 21:59:23 -  INFO - c.r.T.s.TourService - Fetching all tours with details.
+2026-02-12 21:59:23 -  INFO - c.r.T.c.JwtFilter - Processing request to URI: /customer/tours
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Extracting username from token.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 21:59:23 -  INFO - c.r.T.c.JwtFilter - User 'mohdrashad522@gmail.com' is not authenticated, proceeding with token validation.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.MyUserDetailService - User found with email: mohdrashad522@gmail.com, Role: ROLE_CUSTOMER
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Validating token for user: mohdrashad522@gmail.com
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Extracting username from token.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Checking if token is expired.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Extracting expiration date from token.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 21:59:23 -  INFO - c.r.T.s.JwtService - Token is valid for user: mohdrashad522@gmail.com
+2026-02-12 21:59:23 -  INFO - c.r.T.c.UserPrincipal - Retrieving authorities for user: mohdrashad522@gmail.com
+2026-02-12 21:59:23 -  INFO - c.r.T.c.UserPrincipal - Assigned authority: ROLE_CUSTOMER
+2026-02-12 21:59:23 -  INFO - c.r.T.c.JwtFilter - User 'mohdrashad522@gmail.com' successfully authenticated.
+2026-02-12 21:59:23 -  INFO - c.r.T.c.JwtFilter - Continuing filter chain for request to URI: /customer/tours
+2026-02-12 21:59:23 -  INFO - c.r.T.s.TourService - Fetching all tours with details.
+2026-02-12 21:59:43 -  INFO - c.r.T.c.JwtFilter - Processing request to URI: /chat
+2026-02-12 21:59:43 -  INFO - c.r.T.s.JwtService - Extracting username from token.
+2026-02-12 21:59:43 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 21:59:43 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 21:59:43 -  INFO - c.r.T.c.JwtFilter - User 'mohdrashad522@gmail.com' is not authenticated, proceeding with token validation.
+2026-02-12 21:59:43 -  INFO - c.r.T.s.MyUserDetailService - User found with email: mohdrashad522@gmail.com, Role: ROLE_CUSTOMER
+2026-02-12 21:59:43 -  INFO - c.r.T.s.JwtService - Validating token for user: mohdrashad522@gmail.com
+2026-02-12 21:59:43 -  INFO - c.r.T.s.JwtService - Extracting username from token.
+2026-02-12 21:59:43 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 21:59:43 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 21:59:43 -  INFO - c.r.T.s.JwtService - Checking if token is expired.
+2026-02-12 21:59:43 -  INFO - c.r.T.s.JwtService - Extracting expiration date from token.
+2026-02-12 21:59:43 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 21:59:43 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 21:59:43 -  INFO - c.r.T.s.JwtService - Token is valid for user: mohdrashad522@gmail.com
+2026-02-12 21:59:43 -  INFO - c.r.T.c.UserPrincipal - Retrieving authorities for user: mohdrashad522@gmail.com
+2026-02-12 21:59:43 -  INFO - c.r.T.c.UserPrincipal - Assigned authority: ROLE_CUSTOMER
+2026-02-12 21:59:43 -  INFO - c.r.T.c.JwtFilter - User 'mohdrashad522@gmail.com' successfully authenticated.
+2026-02-12 21:59:43 -  INFO - c.r.T.c.JwtFilter - Continuing filter chain for request to URI: /chat
+2026-02-12 21:59:58 -  INFO - c.r.T.c.JwtFilter - Processing request to URI: /chat
+2026-02-12 21:59:58 -  INFO - c.r.T.s.JwtService - Extracting username from token.
+2026-02-12 21:59:58 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 21:59:58 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 21:59:58 -  INFO - c.r.T.c.JwtFilter - User 'mohdrashad522@gmail.com' is not authenticated, proceeding with token validation.
+2026-02-12 21:59:58 -  INFO - c.r.T.s.MyUserDetailService - User found with email: mohdrashad522@gmail.com, Role: ROLE_CUSTOMER
+2026-02-12 21:59:58 -  INFO - c.r.T.s.JwtService - Validating token for user: mohdrashad522@gmail.com
+2026-02-12 21:59:58 -  INFO - c.r.T.s.JwtService - Extracting username from token.
+2026-02-12 21:59:58 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 21:59:58 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 21:59:58 -  INFO - c.r.T.s.JwtService - Checking if token is expired.
+2026-02-12 21:59:58 -  INFO - c.r.T.s.JwtService - Extracting expiration date from token.
+2026-02-12 21:59:58 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 21:59:58 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 21:59:58 -  INFO - c.r.T.s.JwtService - Token is valid for user: mohdrashad522@gmail.com
+2026-02-12 21:59:58 -  INFO - c.r.T.c.UserPrincipal - Retrieving authorities for user: mohdrashad522@gmail.com
+2026-02-12 21:59:58 -  INFO - c.r.T.c.UserPrincipal - Assigned authority: ROLE_CUSTOMER
+2026-02-12 21:59:58 -  INFO - c.r.T.c.JwtFilter - User 'mohdrashad522@gmail.com' successfully authenticated.
+2026-02-12 21:59:58 -  INFO - c.r.T.c.JwtFilter - Continuing filter chain for request to URI: /chat
+2026-02-12 22:00:10 -  INFO - c.r.T.c.JwtFilter - Processing request to URI: /customer/tours
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Extracting username from token.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 22:00:10 -  INFO - c.r.T.c.JwtFilter - User 'mohdrashad522@gmail.com' is not authenticated, proceeding with token validation.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.MyUserDetailService - User found with email: mohdrashad522@gmail.com, Role: ROLE_CUSTOMER
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Validating token for user: mohdrashad522@gmail.com
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Extracting username from token.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Checking if token is expired.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Extracting expiration date from token.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Token is valid for user: mohdrashad522@gmail.com
+2026-02-12 22:00:10 -  INFO - c.r.T.c.UserPrincipal - Retrieving authorities for user: mohdrashad522@gmail.com
+2026-02-12 22:00:10 -  INFO - c.r.T.c.UserPrincipal - Assigned authority: ROLE_CUSTOMER
+2026-02-12 22:00:10 -  INFO - c.r.T.c.JwtFilter - User 'mohdrashad522@gmail.com' successfully authenticated.
+2026-02-12 22:00:10 -  INFO - c.r.T.c.JwtFilter - Continuing filter chain for request to URI: /customer/tours
+2026-02-12 22:00:10 -  INFO - c.r.T.s.TourService - Fetching all tours with details.
+2026-02-12 22:00:10 -  INFO - c.r.T.c.JwtFilter - Processing request to URI: /customer/tours
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Extracting username from token.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 22:00:10 -  INFO - c.r.T.c.JwtFilter - User 'mohdrashad522@gmail.com' is not authenticated, proceeding with token validation.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.MyUserDetailService - User found with email: mohdrashad522@gmail.com, Role: ROLE_CUSTOMER
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Validating token for user: mohdrashad522@gmail.com
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Extracting username from token.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Checking if token is expired.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Extracting expiration date from token.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Extracting all claims from token.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Retrieving signing key.
+2026-02-12 22:00:10 -  INFO - c.r.T.s.JwtService - Token is valid for user: mohdrashad522@gmail.com
+2026-02-12 22:00:10 -  INFO - c.r.T.c.UserPrincipal - Retrieving authorities for user: mohdrashad522@gmail.com
+2026-02-12 22:00:10 -  INFO - c.r.T.c.UserPrincipal - Assigned authority: ROLE_CUSTOMER
+2026-02-12 22:00:10 -  INFO - c.r.T.c.JwtFilter - User 'mohdrashad522@gmail.com' successfully authenticated.
+2026-02-12 22:00:10 -  INFO - c.r.T.c.JwtFilter - Continuing filter chain for request to URI: /customer/tours
+2026-02-12 22:00:10 -  INFO - c.r.T.s.TourService - Fetching all tours with details.
+2026-02-12 22:00:40 -  INFO - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-12 22:00:40 -  INFO - c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-12 22:00:40 -  INFO - c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.

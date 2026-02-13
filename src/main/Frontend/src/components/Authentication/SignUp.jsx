@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Eye, EyeOff, LogIn, Moon, Sun } from "lucide-react";
 
-import googleIMg from "../../assets/images/Google.svg.webp";
+import googleIMg from "../../assets/Images/Google.svg.webp";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userSignUP } from "../../Redux/API/API";

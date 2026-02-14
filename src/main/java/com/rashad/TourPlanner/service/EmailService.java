@@ -14,29 +14,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmailService {
 
+    private static final Logger logger = LoggerFactory.getLogger(EmailService.class);
+
     @Autowired
     private JavaMailSender mailSender;
 
+    // ✅ This reads from application.properties which reads from Render env
+    @Value("${spring.mail.username}")
+    private String fromEmail;
+
     public void sendBookingConfirmationEmail(String toEmail, Booking booking) throws MessagingException {
+        logger.info("Attempting to send booking confirmation email to: {}", toEmail);
 
         Tour tour = booking.getTour();
 
         String subject = "🎉 Your Tour Booking is Confirmed – " + tour.getTourName() + "!";
 
-        // Plain text version
-//        String body = "Dear " + booking.getCustomer().getName() + ",\n\n" +
-//                "Thank you for booking with Tourify! Your tour has been confirmed.\n\n" +
-//                "Booking Details:\n" +
-//                "Booking ID: " + booking.getBookingId() + "\n" +
-//                "Destination: " + tour.getLocation() + "\n" +
-//                "Travel Dates: " + tour.getStartDate() + " to " + tour.getEndDate() + "\n" +
-//                "Number of Tickets: " + booking.getNumberOfTickets() + "\n" +
-//                "Total Paid: $" + booking.getTotalPrice() + "\n\n" +
-//                "We look forward to giving you an amazing experience!\n\n" +
-//                "Best regards,\n" +
-//                "Tourify Team 🌍";
-
-        // HTML version (optional, looks nicer in inbox)
         String htmlBody = "<h2>Dear " + booking.getCustomer().getName() + ",</h2>" +
                 "<p>Thank you for booking with <strong>Tourify</strong>! Your tour has been confirmed.</p>" +
                 "<h3>Booking Details:</h3>" +
@@ -55,11 +48,12 @@ public class EmailService {
 
         helper.setTo(toEmail);
         helper.setSubject(subject);
-        helper.setText(htmlBody, true);  // true = send as HTML
-        helper.setFrom("tourify@demomailtrap.com");
+        helper.setText(htmlBody, true);
+        helper.setFrom(fromEmail);  // ✅ Uses the value from @Value annotation
 
         mailSender.send(message);
-
+        logger.info("Email sent successfully to: {}", toEmail);
     }
+}
 
 }

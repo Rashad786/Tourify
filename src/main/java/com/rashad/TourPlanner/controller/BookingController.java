@@ -52,6 +52,8 @@ public class BookingController {
     @Autowired
     private BookingRepo bookingRepo;
 
+    @Value("${FRONTEND_URL}")
+    private String frontendUrl;
 
     @Autowired
     public void init() {
@@ -145,8 +147,8 @@ public class BookingController {
             // Build Stripe Checkout Session parameters
             SessionCreateParams checkoutParams = SessionCreateParams.builder()
                     .setMode(SessionCreateParams.Mode.PAYMENT)
-                    .setSuccessUrl("http://localhost:5173/success?paymentIntentId=" + paymentIntent.getId() + "&bookingId=" + preliminaryBooking.getBookingId())
-                    .setCancelUrl("http://localhost:5173/cancel")
+                    .setSuccessUrl(frontendUrl + "/success?paymentIntentId=" + paymentIntent.getId() + "&bookingId=" + preliminaryBooking.getBookingId())
+                    .setCancelUrl(frontendUrl + "/cancel")
                     .addLineItem(
                             SessionCreateParams.LineItem.builder()
                                     .setQuantity((long) numberOfTickets)

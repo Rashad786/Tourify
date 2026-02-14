@@ -77,7 +77,7 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
         logger.info("JWT token generated for user: {}", email);
 
         // Build URL with token
-        String redirectUrl = "http://localhost:5173/authSuccess";
+        String redirectUrl = "https://tourifys.netlify.app/authSuccess";
         String finalRedirectUrl = UriComponentsBuilder.fromUriString(redirectUrl)
                 .queryParam("token", token)
                 .build().toUriString();

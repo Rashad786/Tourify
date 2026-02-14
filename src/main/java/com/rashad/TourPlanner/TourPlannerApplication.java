@@ -2,6 +2,7 @@ package com.rashad.TourPlanner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @SpringBootApplication
+@EnableAsync
 public class TourPlannerApplication {
 
 	public static void main(String[] args) {

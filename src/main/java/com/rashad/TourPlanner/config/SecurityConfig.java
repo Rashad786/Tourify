@@ -81,7 +81,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         logger.info("Configuring CORS Configuration.");
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "https://tourifys.netlify.app/")); // Replace it with your frontend URL
+        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "https://tourifys.netlify.app")); // Replace it with your frontend URL
         corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
 //        corsConfiguration.setAllowedHeaders(Arrays.asList("authorization", "content-type", "x-auth-token"));
 //        corsConfiguration.setExposedHeaders(Arrays.asList("x-auth-token"));

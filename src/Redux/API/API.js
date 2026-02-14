@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import axiosInstance, { baseUrl } from './config/axiosConfig';
 import axios from "axios";
 const baseUrl = import.meta.env.VITE_BASE_URL;  
 const token = localStorage.getItem("token");
@@ -21,17 +22,20 @@ export const userSignUP = createAsyncThunk(
 
 // SignIn
 
-export const userLogin = createAsyncThunk("userLogin", async (credentials) => {
-  try {
-    // Making the POST request and waiting for the response
-    const response = await axios.post(`${baseUrl}/auth/login`, credentials);
-    return response.data;
-  } catch (error) {
-    if (error.status === 403) {
-      return { error: "Invalid User!" };
+export const userLogin = createAsyncThunk(
+  "userLogin", 
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const response = await axiosInstance.post('/auth/login', credentials);
+      return response.data;
+    } catch (error) {
+      if (error.response?.status === 403) {
+        return rejectWithValue({ error: "Invalid User!" });
+      }
+      return rejectWithValue({ error: error.response?.data?.message || "Login failed" });
     }
   }
-});
+);
 
 // CHATBOT 
 
@@ -63,17 +67,8 @@ export const fetchUserBookings = createAsyncThunk(
   "user/fetchBookings",
   async (_, { rejectWithValue }) => {
     try {
-      const token = localStorage.getItem("token");
-      
-      // 2. Explicitly call the backend URL
-      const response = await axios.get(`${BASE_URL}/customer/myBookings`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      console.log("API Response:", response.data); // This should now show your Java objects
-      return response.data; 
+      const response = await axiosInstance.get('/customer/myBookings');
+      return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || "Server Error");
     }

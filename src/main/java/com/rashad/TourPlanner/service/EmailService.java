@@ -1,17 +1,20 @@
 package com.rashad.TourPlanner.service;
 
 import com.rashad.TourPlanner.entities.Booking;
-import com.rashad.TourPlanner.entities.Tour;
-import jakarta.mail.MessagingException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService {
+
+    private static final Logger logger = LoggerFactory.getLogger(EmailService.class);
 
     @Autowired
     private JavaMailSender mailSender;
@@ -19,34 +22,30 @@ public class EmailService {
     @Value("${spring.mail.username}")
     private String fromEmail;
 
-    public void sendBookingConfirmationEmail(String toEmail, Booking booking) throws MessagingException {
+    @Async
+    public void sendBookingConfirmationEmail(String toEmail, Booking booking) {
+        logger.info("Email process started for: {}", toEmail);
 
-        Tour tour = booking.getTour();
+        try {
+            MimeMessage message = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-        String subject = "🎉 Your Tour Booking is Confirmed – " + tour.getTourName() + "!";
+            helper.setTo(toEmail);
+            helper.setSubject("🎉 Your Tour Booking is Confirmed!");
+            helper.setFrom(fromEmail);
 
-        String htmlBody = "<h2>Dear " + booking.getCustomer().getName() + ",</h2>" +
-                "<p>Thank you for booking with <strong>Tourify</strong>! Your tour has been confirmed.</p>" +
-                "<h3>Booking Details:</h3>" +
-                "<ul>" +
-                "<li><strong>Booking ID:</strong> " + booking.getBookingId() + "</li>" +
-                "<li><strong>Destination:</strong> " + tour.getLocation().getCountry() + "</li>" +
-                "<li><strong>Travel Dates:</strong> " + tour.getStartDate() + " to " + tour.getEndDate() + "</li>" +
-                "<li><strong>Number of Tickets:</strong> " + booking.getNumberOfTickets() + "</li>" +
-                "<li><strong>Total Paid:</strong> $" + booking.getTotalPrice() + "</li>" +
-                "</ul>" +
-                "<p>We look forward to giving you an amazing experience!</p>" +
-                "<p>Best regards,<br>Tourify Team 🌍</p>";
+            // Simplified for debugging
+            helper.setText("Hi, your booking " + booking.getBookingId() + " is confirmed!", false);
 
-        MimeMessage message = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+            logger.info("Attempting to connect to Gmail SMTP for user: {}", toEmail);
 
-        helper.setTo(toEmail);
-        helper.setSubject(subject);
-        helper.setText(htmlBody, true);
-        helper.setFrom(fromEmail);  
+            mailSender.send(message);
 
-        mailSender.send(message);
+            logger.info("SUCCESS: Email sent successfully to {}", toEmail);
+
+        } catch (Exception e) {
+            logger.error("FATAL EMAIL ERROR: {}", e.getMessage(), e);
+        }
     }
 }
 

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../Redux/API/API";
 import { jwtDecode } from "jwt-decode";
 import { toast } from "sonner";
+const baseUrl = import.meta.env.VITE_BASE_URL; 
 
 const SignIn = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -73,7 +74,7 @@ const SignIn = () => {
   }
 
   const googleLogin = () => {
-    window.open("http://localhost:8080/oauth2/authorization/google", "_self");
+    window.open(`${baseUrl}/oauth2/authorization/google`, "_self");
   };
 
   return (

@@ -5,6 +5,7 @@ import googleIMg from "../../assets/Images/Google.svg.webp";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userSignUP } from "../../Redux/API/API";
+const baseUrl = import.meta.env.VITE_BASE_URL; 
 
 const SignUp = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -57,7 +58,7 @@ const SignUp = () => {
   };
 
   const googleLogin = () => {
-    window.open("http://localhost:8080/oauth2/authorization/google", "_self");
+    window.open(`${baseUrl}/oauth2/authorization/google`, "_self");
   };
 
   return (

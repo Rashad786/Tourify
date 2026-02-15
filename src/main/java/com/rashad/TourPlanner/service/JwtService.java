@@ -9,6 +9,7 @@ import io.jsonwebtoken.security.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -32,11 +33,8 @@ public class JwtService {
 
     private static final String SECRET = "TmV3U2VjcmV0S2V5Rm9ySldUU2lnbmluZ1B1cnBvc2VzMTIzNDU2Nzg=\r\n";
 
+    @Value("${service.jwt.secret}")
     private String secretKey;
-
-    public JwtService() {
-        secretKey = generateSecretKey(); // Generate a secret key at service initialization
-    }
 
     public String generateSecretKey() {
         try {
@@ -73,7 +71,7 @@ public class JwtService {
 
     private Key getKey() {
         logger.info("Retrieving signing key.");
-        byte[] keyBytes = Decoders.BASE64.decode(secretKey); // Decode the Base64-encoded secret key
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey.trim()); // Decode the Base64-encoded secret key
         return Keys.hmacShaKeyFor(keyBytes); // Create an HMAC-SHA256 signing key
     }
 

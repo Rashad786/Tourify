@@ -31,49 +31,34 @@ public class JwtService {
     @Autowired
     private UserRepo userRepo;
 
-    private static final String SECRET = "TmV3U2VjcmV0S2V5Rm9ySldUU2lnbmluZ1B1cnBvc2VzMTIzNDU2Nzg=\r\n";
-
+    // This is the only key you need. 
+    // It pulls from Dashoard -> application.properties -> JVM
     @Value("${service.jwt.secret}")
     private String secretKey;
 
-    public String generateSecretKey() {
-        try {
-            logger.info("Generating a new secret key.");
-            KeyGenerator keyGen = KeyGenerator.getInstance("HmacSHA256"); // Generate key using HMAC-SHA256 algorithm
-            SecretKey secretKey = keyGen.generateKey();
-            logger.info("Secret key generated successfully.");
-            return Base64.getEncoder().encodeToString(secretKey.getEncoded()); // Convert key to Base64 for storage
-        } catch (NoSuchAlgorithmException e) {
-            logger.error("Error generating secret key: {}", e.getMessage(), e);
-            throw new RuntimeException("Error generating secret key", e);
-        }
-    }
-
     public String generateToken(String username) {
         logger.info("Generating token for username: {}", username);
-        String role = userRepo.findRoleByUsername(username); // Fetch user's role from the repository
-        logger.info("Role for user {}: {}", username, role);
+        String role = userRepo.findRoleByUsername(username);
 
         Map<String, Object> claims = new HashMap<>();
-        claims.put("role", role); // Add role information as a claim in the token
+        claims.put("role", role);
 
-        String token = Jwts.builder()
+        return Jwts.builder()
                 .setClaims(claims)
-                .setSubject(username) // Set username as the token subject
-                .setIssuedAt(new Date(System.currentTimeMillis())) // Add the issued timestamp
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24)) // Token valid for 24 hours
-                .signWith(getKey(), SignatureAlgorithm.HS256) // Sign token using the secret key
+                .setSubject(username)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24))
+                .signWith(getKey(), SignatureAlgorithm.HS256)
                 .compact();
-
-        logger.info("Token generated successfully for username: {}", username);
-        return token;
     }
 
     private Key getKey() {
-        logger.info("Retrieving signing key.");
-        byte[] keyBytes = Decoders.BASE64.decode(secretKey.trim()); // Decode the Base64-encoded secret key
-        return Keys.hmacShaKeyFor(keyBytes); // Create an HMAC-SHA256 signing key
+        // .trim() is important because copy-pasting from dashboards 
+        // often adds invisible spaces or newlines
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey.trim()); 
+        return Keys.hmacShaKeyFor(keyBytes);
     }
+
 
     public String extractUserName(String token) {
         logger.info("Extracting username from token.");

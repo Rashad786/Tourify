@@ -8,7 +8,7 @@
 ![Auth](https://img.shields.io/badge/AUTH-JWT-FF6F00?style=for-the-badge&logo=jsonwebtokens)
 ![Build](https://img.shields.io/badge/BUILD-MAVEN-C71A36?style=for-the-badge&logo=apachemaven)
 
-## 🚀 Projec Overview
+## 🚀 Project Overview
 
 Tourify is a full-stack platform designed to simplify **event discovery, booking, and management** by connecting users, artists, and venues in a unified ecosystem.
 
